@@ -25,7 +25,51 @@
 // THE POSSIBILITY OF SUCH DAMAGE.
 //
 // SPDX-License-Identifier: BSD-2-Clause
+//
+// ================================================================================================
 
+struct MessageDeadline(u32);
+struct MessagePriority(u32);
 
+trait Message {
+    fn is_complete(&self) -> bool;
+    fn is_immediate(&self) -> bool;
+    fn is_idempotent(&self) -> bool;
+    fn priority(&self) -> MessagePriority;
+    fn deadline(&self) -> Option<MessageDeadline>;
+    fn depends_on(&self) -> Vec<&Self>;
+}
 
+trait Protocol {
+    type M : Message;
 
+    // FIXME: needs to account for partial messages
+    fn decode_message(&self, data : &[u8]) -> Option<Self::M>;
+    fn encode_message(&self, &Self::M) -> [u8];
+}
+
+// ================================================================================================
+
+struct Carrier<P : Protocol> {
+}
+
+impl<P : Protocol> Carrier<P> {
+    fn send(&mut self, msg : &P::M) {
+        unimplemented!()
+    }
+}
+
+// ================================================================================================
+
+struct Listener<P : Protocol> {
+}
+
+impl<P : Protocol> Listener<P> {
+    fn listen() -> Self {
+    }
+
+    fn accept(&mut self) -> Carrier<P> {
+    }
+}
+
+// ================================================================================================
