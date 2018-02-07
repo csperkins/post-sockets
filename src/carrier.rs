@@ -28,8 +28,14 @@
 //
 // ================================================================================================
 
-mod message;
-mod protocol;
-mod carrier;
+use protocol::Protocol;
 
-// ================================================================================================
+pub struct Carrier<P : Protocol> {
+}
+
+impl<P : Protocol> Carrier<P> {
+    fn send(&mut self, msg : &P::M) {
+        unimplemented!()
+    }
+}
+

@@ -28,8 +28,13 @@
 //
 // ================================================================================================
 
-mod message;
-mod protocol;
-mod carrier;
+use message::Message;
 
-// ================================================================================================
+pub trait Protocol {
+    type M : Message;
+
+    // FIXME: needs to account for partial messages
+    fn decode_message(&self, data : &[u8]) -> Option<Self::M>;
+    fn encode_message(&self, &Self::M) -> [u8];
+}
+

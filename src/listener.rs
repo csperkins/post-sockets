@@ -28,8 +28,16 @@
 //
 // ================================================================================================
 
-mod message;
-mod protocol;
-mod carrier;
+use protocol::Protocol;
 
-// ================================================================================================
+pub struct Listener<P : Protocol> {
+}
+
+impl<P : Protocol> Listener<P> {
+    fn listen() -> Self {
+    }
+
+    fn accept(&mut self) -> Carrier<P> {
+    }
+}
+
