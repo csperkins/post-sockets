@@ -28,15 +28,17 @@
 //
 // ================================================================================================
 
-struct MessageDeadline(u32);
-struct MessagePriority(u32);
+use std::cmp::Ord;
 
 trait Message {
+    type Deadline : Ord;
+    type Priority : Ord;
+
     fn is_complete(&self) -> bool;
     fn is_immediate(&self) -> bool;
     fn is_idempotent(&self) -> bool;
-    fn priority(&self) -> MessagePriority;
-    fn deadline(&self) -> Option<MessageDeadline>;
+    fn priority(&self) -> Self::Priority;
+    fn deadline(&self) -> Option<Self::Deadline>;
     fn depends_on(&self) -> Vec<&Self>;
 }
 
