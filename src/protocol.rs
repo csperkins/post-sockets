@@ -35,6 +35,6 @@ pub trait Protocol {
 
     // FIXME: needs to account for partial messages
     fn decode_message(&self, data : &[u8]) -> Option<Self::M>;
-    fn encode_message(&self, &Self::M) -> [u8];
+    fn encode_message(&self, mesg : &Self::M) -> &[u8];
 }
 
