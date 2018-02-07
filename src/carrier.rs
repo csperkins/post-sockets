@@ -31,6 +31,7 @@
 use protocol::Protocol;
 
 pub struct Carrier<P : Protocol> {
+    protocol : P
 }
 
 impl<P : Protocol> Carrier<P> {
