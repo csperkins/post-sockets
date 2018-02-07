@@ -25,9 +25,61 @@
 // THE POSSIBILITY OF SUCH DAMAGE.
 //
 // SPDX-License-Identifier: BSD-2-Clause
+//
+// ================================================================================================
 
+use ::message::Message;
+use ::protocol::Protocol;
 
+enum QuicMessage {
+}
 
+impl Message for QuicMessage {
+    type Deadline = u8;     // FIXME
+    type Priority = u8;     // FIXME
+
+    fn is_complete(&self) -> bool {
+        unimplemented!()
+    }
+
+    fn is_immediate(&self) -> bool {
+        unimplemented!()
+    }
+
+    fn is_idempotent(&self) -> bool {
+        unimplemented!()
+    }
+
+    fn priority(&self) -> Self::Priority {
+        unimplemented!()
+    }
+
+    fn deadline(&self) -> Option<Self::Deadline> {
+        unimplemented!()
+    }
+
+    fn depends_on(&self) -> Vec<&Self> {
+        unimplemented!()
+    }
+
+}
+
+// ================================================================================================
+
+struct Quic {
+}
+
+impl Protocol for Quic {
+    type M = QuicMessage;
+
+    fn decode_message(&self, data : &[u8]) -> Option<Self::M> {
+        unimplemented!()
+    }
+
+    fn encode_message(&self, mesg : &Self::M) -> &[u8] {
+        unimplemented!()
+    }
+}
 
 
 
