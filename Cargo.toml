@@ -32,7 +32,7 @@ description = "Post Sockets -- An Implementation of the IETF Transport Services 
 homepage = "https://csperkins.org/research/post-sockets/"
 repository = "https://github.com/csperkins/post-sockets"
 readme = "README.md"
-keywords = ["networking", "transport protocols", "IETF"]
+keywords = ["network", "networking", "protocol", "ietf"]
 categories = ["network-programming"]
 license = "BSD-2-Clause"
 
