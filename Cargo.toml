@@ -26,7 +26,7 @@
 
 [package]
 name = "post-sockets"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Colin Perkins <csp@csperkins.org>"]
 description = "Post Sockets -- An Implementation of the IETF Transport Services API"
 homepage = "https://csperkins.org/research/post-sockets/"
