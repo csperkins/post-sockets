@@ -30,6 +30,13 @@
 name = "post-sockets"
 version = "0.1.0"
 authors = ["Colin Perkins <csp@csperkins.org>"]
+description = "Post Sockets -- An Implementation of the IETF Transport Services API"
+homepage = "https://csperkins.org/research/post-sockets/"
+repository = "https://github.com/csperkins/post-sockets"
+readme = "README.md"
+keywords = ["networking", "transport protocols", "IETF"]
+categories = ["network-programming"]
+license = "BSD-2-Clause"
 
 [dependencies]
 bytes = "0.4"
